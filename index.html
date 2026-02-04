@@ -233,6 +233,38 @@
         padding: 20px;
       }
 
+      /* WhatsApp Floating Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+        text-decoration: none;
+      }
+      .whatsapp-float.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      }
+      .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         body {
@@ -414,7 +446,7 @@
           />
           <h3 style="margin-top: 5px">1kg</h3>
           <p style="font-size: 15px">Hasta 4 sabores</p>
-          <p style="color: red;">$8.500</p>
+          <p style="color: red">$8.500</p>
         </div>
         <div class="price-item" style="width: max-content">
           <img
@@ -424,7 +456,7 @@
           />
           <h3 style="margin-top: 5px">1/2kg</h3>
           <p style="font-size: 15px">Hasta 3 sabores</p>
-          <p style="color: red;">$5.500</p>
+          <p style="color: red">$5.500</p>
         </div>
         <div class="price-item" style="width: max-content">
           <img
@@ -434,7 +466,7 @@
           />
           <h3 style="margin-top: 5px">1/4kg</h3>
           <p style="font-size: 15px">Hasta 2 sabores</p>
-          <p style="color: red;">$3.500</p>
+          <p style="color: red">$3.500</p>
         </div>
       </div>
     </section>
@@ -556,5 +588,29 @@
         <p>&copy; 2026 Click-Helado. Todos los derechos reservados.</p>
       </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/5492914469704"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <img
+        src="https://img.icons8.com/color/48/000000/whatsapp.png"
+        alt="WhatsApp"
+      />
+    </a>
+
+    <script>
+      // WhatsApp floating button scroll behavior
+      window.addEventListener("scroll", function () {
+        const whatsappBtn = document.querySelector(".whatsapp-float");
+        if (window.scrollY > 200) {
+          whatsappBtn.classList.add("show");
+        } else {
+          whatsappBtn.classList.remove("show");
+        }
+      });
+    </script>
   </body>
 </html>
